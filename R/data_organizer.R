@@ -6,6 +6,7 @@ familiar <- data.frame(id = factor(), stimuli = factor(), time = double(), oxyge
 for (index in 1:length(list_files)){
   dummie <- read.csv(list_files[index])
   dummie <- dummie[-1,]
+  dummie <- dummie[!is.na(dummie$Cantos),]
   dummie$id <- id_list[index]
   dummie <- dummie[,c(5,1:4)]
   dummie$Cantos[dummie$Cantos == 4] <- 2
